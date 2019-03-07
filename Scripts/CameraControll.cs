@@ -12,6 +12,11 @@ public class CameraControll : MonoBehaviour
 
     void Update()
     {
+        CamFollowPlayer();
+    }
+
+    private void CamFollowPlayer()
+    {
         Vector3 playerPos = player.transform.position;
         playerPos.z += camDepth;
         playerPos.y += camHeight;

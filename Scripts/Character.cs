@@ -44,9 +44,7 @@ public class Character : MonoBehaviour
     {
         if (otherOb.gameObject.tag.Equals("Wall"))
         {
-            transform.rotation = Quaternion.AngleAxis(180, transform.up) * transform.rotation;
-
-
+            transform.rotation = Quaternion.AngleAxis(180, transform.up) * transform.rotation; //Epick code
         }
     }
 }
