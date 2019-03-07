@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
     //god mode
     public bool isMoving = true;
 
-    void Update()
+    public virtual void Update()
     {
         RotateDir();
         MoveForward();
