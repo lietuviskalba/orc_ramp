@@ -12,9 +12,20 @@ public class Arrow : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider coll)
     {
-        if (other.gameObject.tag.Equals("Wall"))
+        GameObject other = coll.gameObject;
+        if (other.tag.Equals("Wall"))
+        {
             Destroy(gameObject);
+        }
+
+        if (other.tag.Equals("Enemy"))
+        {
+            //Add point here
+            GameObject.FindGameObjectWithTag("Master").GetComponent<GameMaster>().IncEnemyGS--;
+            Destroy(other);
+            Destroy(gameObject);
+        }
     }
 }

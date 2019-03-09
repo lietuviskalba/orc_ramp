@@ -7,10 +7,13 @@ public class Player : Character
     public GameObject ammo;
     public GameObject bag;
 
-    [Range(-5f, 25f)]
+    [Range(0f, 15f)]
+    public float rotSpeed;
+    [Range(0f, 25f)]
     public float fireRate = 5f;
-    [Range(-5f, 25f)]
+    [Range(0f, 25f)]
     public float bagSpawnRate = 5f;
+    public bool isArrowShooting;
 
     private float nextShot = 1f;
     private float nextBagSpawn = 1f;
@@ -18,8 +21,22 @@ public class Player : Character
     public override void Update()
     {
         base.Update();
+        RotateDir();
         ShootArrow();
         SpawnBag();
+    }
+
+    private void RotateDir()
+    {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Rotate(0f, -1f * rotSpeed, 0f, Space.Self);
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(0f, 1f * rotSpeed, 0f, Space.Self);
+        }
     }
 
     private void SpawnBag()
@@ -41,7 +58,7 @@ public class Player : Character
 
     private void ShootArrow()
     {
-        if (Time.time > nextShot)
+        if (Time.time > nextShot && isArrowShooting == true)
         {
             nextShot = Time.time + fireRate;
             Instantiate(ammo, transform.position, transform.rotation);
