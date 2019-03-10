@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
     GameObject[] spawners;
     
-    [Range(0f, 10f)]
+    [Range(0f, 20f)]
     public int maxEnemiesInGame;
     private int minEnemiesInGame;
-    [Range(0f, 9f)]
+    [Range(0f, 19f)]
     public int spawnGap;
 
     public int IncEnemyGS { get; set; }
@@ -18,6 +19,7 @@ public class GameMaster : MonoBehaviour
     {
         spawners = GameObject.FindGameObjectsWithTag("Spawner");
         minEnemiesInGame = maxEnemiesInGame - spawnGap; // Set a little difrence between max & min
+        PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
     }
 
     void Update()

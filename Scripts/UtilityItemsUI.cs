@@ -11,6 +11,7 @@ public class UtilityItemsUI : MonoBehaviour
 
     private float bagCd = 0;
     private bool isBagPressed;
+    private bool waitCooldown = false;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class UtilityItemsUI : MonoBehaviour
 
     private void BagCooldown()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Add touch input
+        if (Input.GetKeyDown(KeyCode.Space) && waitCooldown == false) // Add touch input
         {
             SetImgProperties(true, 0, Color.gray);
         }
@@ -48,10 +49,11 @@ public class UtilityItemsUI : MonoBehaviour
             }
         }
     }
-    private void SetImgProperties(bool btnState, float fill, Color color)
+    private void SetImgProperties(bool state, float fill, Color color)
     {
-        isBagPressed = btnState;
+        isBagPressed = state;
         imgBagCd.fillAmount = fill;
         imgBagCd.color = color;
+        waitCooldown = state; // Wait for cd before using ability again
     }
 }

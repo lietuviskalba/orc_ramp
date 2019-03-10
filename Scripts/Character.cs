@@ -40,9 +40,15 @@ public class Character : MonoBehaviour
 
         if (gameObject.tag.Equals("Enemy") && otherOb.tag.Equals("Player")) //When player gets killed by enemy
         {
-            //Game over here
-            otherOb.gameObject.SetActive(false);
+            GameOver(otherOb);
         }
+    }
+
+    private static void GameOver(GameObject otherOb)
+    {
+        otherOb.gameObject.SetActive(false);
+        LevelManager lm = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        lm.LoadScene("end_game");
     }
 
     private void OnCollisionStay(Collision otherOb)

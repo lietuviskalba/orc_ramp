@@ -15,7 +15,7 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter(Collider coll)
     {
         GameObject other = coll.gameObject;
-        if (other.tag.Equals("Wall")) // Arrow breaks after hitting a wall
+        if (other.tag.Equals("Wall") || other.tag.Equals("Spawner")) // Arrow breaks after hitting a wall
         {
             Destroy(gameObject);
         }
