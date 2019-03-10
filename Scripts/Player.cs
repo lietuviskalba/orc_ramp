@@ -8,6 +8,7 @@ public class Player : Character
     public GameObject bag;
 
     [Range(0f, 15f)]
+    [Tooltip("How fast player makes turns")]
     public float rotSpeed;
     [Range(0f, 25f)]
     public float fireRate = 5f;

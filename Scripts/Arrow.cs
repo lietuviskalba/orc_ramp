@@ -15,18 +15,18 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter(Collider coll)
     {
         GameObject other = coll.gameObject;
-        if (other.tag.Equals("Wall"))
+        if (other.tag.Equals("Wall")) // Arrow breaks after hitting a wall
         {
             Destroy(gameObject);
         }
 
-        if (other.tag.Equals("Enemy"))
+        if (other.tag.Equals("Enemy")) // Kill enemy
         {
             GameObject gm = GameObject.FindGameObjectWithTag("Master");
             gm.GetComponent<GameMaster>().IncEnemyGS--;
             gm.GetComponent<Score>().IncScoreGS++;
             Destroy(other);
-            Destroy(gameObject); //Destoy this always last (so that the rest code executes
+            Destroy(gameObject); // Destoy this always last (so that the rest code executes
         }
     }
 }

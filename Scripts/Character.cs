@@ -33,12 +33,12 @@ public class Character : MonoBehaviour
     public void OnCollisionEnter(Collision coll)
     {
         GameObject otherOb = coll.gameObject;
-        if (otherOb.tag.Equals("Wall") || otherOb.tag.Equals("Enemy") || otherOb.tag.Equals("Spawner"))
+        if (otherOb.tag.Equals("Wall") || otherOb.tag.Equals("Enemy") || otherOb.tag.Equals("Spawner")) //When hit into objects
         {
             transform.rotation = Quaternion.AngleAxis(180, transform.up) * transform.rotation; //Epick code
         }
 
-        if (gameObject.tag.Equals("Enemy") && otherOb.tag.Equals("Player"))
+        if (gameObject.tag.Equals("Enemy") && otherOb.tag.Equals("Player")) //When player gets killed by enemy
         {
             //Game over here
             otherOb.gameObject.SetActive(false);

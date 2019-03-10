@@ -18,6 +18,6 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        txtScore.text = ": " + IncScoreGS.ToString("00");
+        txtScore.text = ": " + IncScoreGS.ToString("00"); // Display text
     }
 }

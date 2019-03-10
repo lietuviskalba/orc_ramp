@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject enemy;
 
     [Range(0f, 359f)]
+    [Tooltip("Direction (rotation) at witch the spawner will face")]
     public float spawnDir;
     [Range(0f, 20f)]
     public float spawnRate;

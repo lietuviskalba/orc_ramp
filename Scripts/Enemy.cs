@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     [Range(0f, 50f)]
+    [Tooltip("After enemy hits wall choose random angle to bounce off")]
     public float rotAngle = 20f;
 
 
