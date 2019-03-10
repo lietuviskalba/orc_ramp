@@ -14,10 +14,13 @@ public class Player : Character
     public float fireRate = 5f;
     [Range(0f, 25f)]
     public float bagSpawnRate = 5f;
+
     public bool isArrowShooting;
 
     private float nextShot = 1f;
     private float nextBagSpawn = 1f;
+
+    public bool IsBagPressedGS { get; set; } = false;
 
     public override void Update()
     {
@@ -44,7 +47,8 @@ public class Player : Character
     {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextBagSpawn)
         {
-            nextBagSpawn = Time.time + bagSpawnRate; // limite bag spam spawn
+            IsBagPressedGS = true;
+            nextBagSpawn = Time.time + bagSpawnRate; // Limite bag spawm spawn
 
             Vector3 playerPos = transform.position;
             Vector3 playerDirection = transform.forward;
@@ -55,6 +59,8 @@ public class Player : Character
             GameObject cloneBag = Instantiate(bag, spawnPos, transform.rotation) as GameObject;
             Destroy(cloneBag, 1f); //Destroy after being placed
         }
+
+        IsBagPressedGS = false;
     }
 
     private void ShootArrow()
