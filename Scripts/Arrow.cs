@@ -22,10 +22,11 @@ public class Arrow : MonoBehaviour
 
         if (other.tag.Equals("Enemy"))
         {
-            //Add point here
-            GameObject.FindGameObjectWithTag("Master").GetComponent<GameMaster>().IncEnemyGS--;
+            GameObject gm = GameObject.FindGameObjectWithTag("Master");
+            gm.GetComponent<GameMaster>().IncEnemyGS--;
+            gm.GetComponent<Score>().IncScoreGS++;
             Destroy(other);
-            Destroy(gameObject);
+            Destroy(gameObject); //Destoy this always last (so that the rest code executes
         }
     }
 }
