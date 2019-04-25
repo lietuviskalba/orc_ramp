@@ -57,7 +57,7 @@ public class Player : Character
             Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
 
             GameObject cloneBag = Instantiate(bag, spawnPos, transform.rotation) as GameObject;
-            Destroy(cloneBag, 1f); //Destroy after being placed
+            Destroy(cloneBag, 1f); //Destroy after being placed.
         }
 
         IsBagPressedGS = false;

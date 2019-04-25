@@ -18,7 +18,7 @@ public class Enemy : Character
     private void TweakDir()
     {
         float yDir = transform.rotation.eulerAngles.y; //Only this euler gets the real rot position
-        float setOffset = Random.Range(yDir - rotAngle, yDir + rotAngle); // Off set the current angle
+        float setOffset = Random.Range(yDir - rotAngle, yDir + rotAngle); // Off set the current angle.
         transform.rotation = Quaternion.Euler(transform.rotation.x, setOffset , transform.rotation.z);
     }
 }

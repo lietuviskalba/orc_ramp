@@ -11,7 +11,7 @@ public class EndResult : MonoBehaviour
 
     private void Start()
     {
-        finalScore = PlayerPrefs.GetInt("Score"); // Get score before death
+        finalScore = PlayerPrefs.GetInt("Score"); // Get score before death.
         txtShowScore.text = "Your Score \n" + finalScore.ToString(); //Display score
     }
 }

@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        //!!! Just in case you might want to check if ur child has something in front of it, so pause spawn
+        //!!! Just in case you might want to check if ur child has something in front of it, so pause spawn.
         Transform location = transform.GetChild(0); // Find the offset
         GameObject newEnemy = Instantiate(enemy, location.transform.position, transform.rotation);
         newEnemy.transform.parent = transform; // Set children under parent hierchy

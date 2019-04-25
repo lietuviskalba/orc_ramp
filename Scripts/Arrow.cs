@@ -9,13 +9,13 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter(Collider coll)
     {
         GameObject other = coll.gameObject;
-        if (other.tag.Equals("Wall") || other.tag.Equals("Spawner")) // Arrow breaks after hitting a wall
+        if (other.tag.Equals("Wall") || other.tag.Equals("Spawner")) // Arrow breaks after hitting a wall.
         {
             Destroy(gameObject);
         }

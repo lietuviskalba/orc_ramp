@@ -16,7 +16,7 @@ public class Score : MonoBehaviour
         score = levelUI.transform.Find("Score").gameObject;
         txtScore = score.GetComponentInChildren<Text>();
         txtScore.text = ": 00"; // Set default txt
-        IncScoreGS = 0; // Reset score
+        IncScoreGS = 0; // Reset score.
     }
 
     void Update()

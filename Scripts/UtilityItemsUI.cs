@@ -15,7 +15,7 @@ public class UtilityItemsUI : MonoBehaviour
 
     void Start()
     {
-        bagCD = transform.GetChild(1).gameObject; // Get the Bag cooldown
+        bagCD = transform.GetChild(1).gameObject; // Get the Bag cooldown.
         imgBagCd = bagCD.transform.GetChild(0).gameObject.GetComponent<Image>(); // Get the img in child
         bagCd = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().bagSpawnRate;
     }

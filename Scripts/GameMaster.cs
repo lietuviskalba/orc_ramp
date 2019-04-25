@@ -18,7 +18,7 @@ public class GameMaster : MonoBehaviour
     void Start()
     {
         spawners = GameObject.FindGameObjectsWithTag("Spawner");
-        minEnemiesInGame = maxEnemiesInGame - spawnGap; // Set a little difrence between max & min
+        minEnemiesInGame = maxEnemiesInGame - spawnGap; // Set a little difrence between max & min.
         PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
     }
 

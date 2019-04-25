@@ -26,7 +26,7 @@ public class Character : MonoBehaviour
     {
         if (IsGrounded())
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.fixedDeltaTime);
         }
     }
 
@@ -38,7 +38,7 @@ public class Character : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(180, transform.up) * transform.rotation; //Epick code
         }
 
-        if (gameObject.tag.Equals("Enemy") && otherOb.tag.Equals("Player")) //When player gets killed by enemy
+        if (gameObject.tag.Equals("Enemy") && otherOb.tag.Equals("Player")) //When player gets killed by enemy.
         {
             GameOver(otherOb);
         }
